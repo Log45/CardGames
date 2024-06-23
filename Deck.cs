@@ -22,4 +22,16 @@ public class Deck{
             cards[j] = temp;
         }
     }
+    public void dealCard(){
+        if(cards.Length == 0){
+            return null;
+        }
+        Card c = cards[0];
+        c.setStatus(false);
+        for(int i = 0; i < cards.Length - 1; i++){
+            cards[i] = cards[i+1];
+        }
+        cards[cards.Length - 1] = null;
+        return c;
+    }
 }
