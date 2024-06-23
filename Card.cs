@@ -1,3 +1,4 @@
+namespace CardGames.Card;
 public enum Suit{
     Spades;
     Hearts;
@@ -6,7 +7,6 @@ public enum Suit{
 }
 
 public enum Rank{
-    One;
     Two;
     Three;
     Four;
@@ -23,10 +23,32 @@ public enum Rank{
 }
 
 public class Card{
-    public int faceValue;
-    public Suit suit;
-    public Card(int c, Suit s){
-        faceValue = c;
+    private int value;
+    private Suit suit;
+    private Rank rank;
+    private bool isAvailable;
+    public Card(int c, Suit s, Rank r){
+        value = c;
         suit = s;
+        rank = r;
+        isAvailable = true;
+    }
+    public int getValue(){
+        return value;
+    }
+    public Suit getSuit(){
+        return suit;
+    }
+    public Rank getRank(){
+        return rank;
+    }
+    public bool getStatus(){
+        return isAvailable;
+    }
+    public void setStatus(bool status){
+        isAvailable = status;
+    }
+    public void setValue(int v){
+        value = v;
     }
 }
