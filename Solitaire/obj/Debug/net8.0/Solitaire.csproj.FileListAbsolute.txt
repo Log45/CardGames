@@ -1,0 +1,15 @@
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\bin\Debug\net8.0\Solitaire.exe
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\bin\Debug\net8.0\Solitaire.deps.json
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\bin\Debug\net8.0\Solitaire.runtimeconfig.json
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\bin\Debug\net8.0\Solitaire.dll
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\bin\Debug\net8.0\Solitaire.pdb
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\obj\Debug\net8.0\Solitaire.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\obj\Debug\net8.0\Solitaire.AssemblyInfoInputs.cache
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\obj\Debug\net8.0\Solitaire.AssemblyInfo.cs
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\obj\Debug\net8.0\Solitaire.csproj.CoreCompileInputs.cache
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\obj\Debug\net8.0\Solitaire.sourcelink.json
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\obj\Debug\net8.0\Solitaire.dll
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\obj\Debug\net8.0\refint\Solitaire.dll
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\obj\Debug\net8.0\Solitaire.pdb
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\obj\Debug\net8.0\Solitaire.genruntimeconfig.cache
+C:\Users\Logan\Documents\CODE\CardGames\Solitaire\obj\Debug\net8.0\ref\Solitaire.dll
