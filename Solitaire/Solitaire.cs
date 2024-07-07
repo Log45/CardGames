@@ -71,14 +71,14 @@ public class Solitaire{
             sb.Append("__ ");
         }
         else {
-            sb.Append(stock.First().ToString() + " "); 
+            sb.Append(stock.Peek().ToString() + " "); 
         }
 
         if (waste.Count == 0) {
             sb.Append("__    ");
         }
         else {
-            sb.Append(waste.First().ToString() + "    "); 
+            sb.Append(waste.Peek().ToString() + "    "); 
         }
 
         for (int i = 0; i < 4; i++)
@@ -87,7 +87,7 @@ public class Solitaire{
                 sb.Append("__");
             }
             else {
-                sb.Append(foundations[i].First().ToString()); 
+                sb.Append(foundations[i].Peek().ToString()); 
             }
             if (i == 3) {
                 sb.Append('\n');
@@ -162,7 +162,7 @@ public class Solitaire{
                     }
                 }
                 else{
-                    if(IsCompatible(c, piles[to].First())){
+                    if(IsCompatible(c, piles[to].Peek())){
                         piles[to].Push(c);
                     }
                     else{
@@ -184,7 +184,7 @@ public class Solitaire{
                     }
                 }
                 else{
-                    if(IsCompatible(c, foundations[to-7].First())){
+                    if(IsCompatible(c, foundations[to-7].Peek())){
                         foundations[to-7].Push(c);
                     }
                     else{
@@ -214,7 +214,7 @@ public class Solitaire{
                         }
                     }
                     else{
-                        if(IsCompatible(c, piles[to].First())){
+                        if(IsCompatible(c, piles[to].Peek())){
                             piles[to].Push(c);
                         }
                         else{
@@ -236,7 +236,7 @@ public class Solitaire{
                         }
                     }
                     else{
-                        if(IsCompatible(c, foundations[to-7].First())){
+                        if(IsCompatible(c, foundations[to-7].Peek())){
                             foundations[to-7].Push(c);
                         }
                         else{
@@ -265,7 +265,7 @@ public class Solitaire{
                         }
                     }
                     else{
-                        if(IsCompatible(c, piles[to].First())){
+                        if(IsCompatible(c, piles[to].Peek())){
                             piles[to].Push(c);
                         }
                         else{
@@ -287,7 +287,7 @@ public class Solitaire{
                         }
                     }
                     else{
-                        if(IsCompatible(c, foundations[to-7].First())){
+                        if(IsCompatible(c, foundations[to-7].Peek())){
                             foundations[to-7].Push(c);
                         }
                         else{
