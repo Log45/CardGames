@@ -267,6 +267,7 @@ public class Solitaire{
         sb.Append("Move codes:\n");
         sb.Append("Waste Pile: -1\t Pile 1: 0\t Pile 2: 1\t Pile 3: 2\t Pile 4: 3\t Pile 5: 4\t Pile 6: 5\t Pile 7: 6\n");
         sb.Append("Foundation 1: 7\t Foundation 2: 8\t Foundation 3: 9\t Foundation 4: 10\n");
+        sb.Append("C: Clubs\t S: Spades\t H: Hearts\t D: Diamonds\n");
         return sb.ToString();
     }
 
