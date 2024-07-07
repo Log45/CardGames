@@ -1,4 +1,3 @@
-
 namespace CardGames.common;
 
 public enum Suit{
