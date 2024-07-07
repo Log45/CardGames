@@ -11,16 +11,14 @@ public class Deck{
             }
         }
     }
-    public void shuffle(){
+    public void Shuffle(){
         var rand = new Random();
         for(int i = 0; i < 52; i++){
             int j = i + rand.Next(52 - i);
-            Card temp = cards[i];
-            cards[i] = cards[j];
-            cards[j] = temp;
+            (cards[j], cards[i]) = (cards[i], cards[j]);
         }
     }
-    public Card dealCard(){
+    public Card? DealCard(){
         if(cards.Length == 0){
             return null;
         }

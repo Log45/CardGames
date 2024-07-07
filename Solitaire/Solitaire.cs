@@ -3,6 +3,7 @@ using CardGames.common;
 using System.Collections;
 using System.Text;
 using System;
+using System.Data;
 
 namespace CardGames.Solitaire;
 public class Solitaire{
@@ -13,7 +14,7 @@ public class Solitaire{
     private Stack<Card> waste;
     public Solitaire(){
         deck = new Deck();
-        deck.shuffle();
+        deck.Shuffle();
         piles = new Stack<Card>[7];
         foundations = new Stack<Card>[4];
         stock = new Stack<Card>();
@@ -21,7 +22,7 @@ public class Solitaire{
         for(int i = 0; i < 7; i++){
             piles[i] = new Stack<Card>();
             for(int j = 0; j < i+1; j++){
-                Card c = deck.dealCard();
+                Card c = deck.DealCard();
                 if(j == i){
                     c.setFaceUp(true);
                 }
@@ -32,36 +33,63 @@ public class Solitaire{
             foundations[i] = new Stack<Card>();
         }
         for(int i = 0; i < 24; i++){
-            Card c = deck.dealCard();
+            Card c = deck.DealCard();
             stock.Push(c);
         }
     }
+
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < 7; i++){
-            sb.Append("Pile " + i + ": ");
-            foreach(Card c in piles[i]){
-                sb.Append(c.toString() + ", ");
+        StringBuilder[] rows = new StringBuilder[7];
+
+        for(int i = 0; i<7; i++){
+            rows[i] = new StringBuilder();
+        }
+
+        sb.Append("S  W     FC FS FD FH\n");
+
+        if (stock.Count == 0) {
+            sb.Append("__ ");
+        }
+        else {
+            sb.Append(stock.First().ToString() + " "); 
+        }
+
+        if (waste.Count == 0) {
+            sb.Append("__    ");
+        }
+        else {
+            sb.Append(waste.First().ToString() + "    "); 
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (foundations[i].Count == 0) {
+                sb.Append("__");
             }
-            sb.Append("\n");
-        }
-        for(int i = 0; i < 4; i++){
-            sb.Append("Foundation " + i + ": ");
-            foreach(Card c in foundations[i]){
-                sb.Append(c.toString() + ", ");
+            else {
+                sb.Append(foundations[i].First().ToString()); 
             }
-            sb.Append("\n");
+            if (i == 3) {
+                sb.Append('\n');
+            }
+            else {
+                sb.Append(' '); 
+            }
         }
-        sb.Append("Stock: ");
-        foreach(Card c in stock){
-            sb.Append(c.toString() + ", ");
+        for(int i = 0; i < 7; i++)
+        {
+            int count = 0;
+            foreach(Card c in piles[i])
+            {
+                rows[count].Append(c.ToString() + " ");
+                count++;
+            }
         }
-        sb.Append("\n");
-        sb.Append("Waste: ");
-        foreach(Card c in waste){
-            sb.Append(c.toString() + ", ");
+        for(int i = 0; i < 7; i++)
+        {
+            sb.Append(rows[i].ToString() + "\n");
         }
-        sb.Append("\n");
         return sb.ToString();
     }
     public void Play(){

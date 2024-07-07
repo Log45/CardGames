@@ -54,7 +54,7 @@ public class Card{
     public void setFaceUp(bool faceUp){
         isFaceUp = faceUp;
     }
-    public string toString(){
+    public override string ToString(){
         if(isFaceUp){
             return rankToString[rank] + suitToString[suit];
         }

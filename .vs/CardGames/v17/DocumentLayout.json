@@ -26,21 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Solitaire.cs",
-              "DocumentMoniker": "C:\\Users\\Logan\\Documents\\CODE\\CardGames\\Solitaire\\Solitaire.cs",
-              "RelativeDocumentMoniker": "Solitaire\\Solitaire.cs",
-              "ToolTip": "C:\\Users\\Logan\\Documents\\CODE\\CardGames\\Solitaire\\Solitaire.cs",
-              "RelativeToolTip": "Solitaire\\Solitaire.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAAFMAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T06:48:45.902Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -49,9 +36,22 @@
               "RelativeDocumentMoniker": "Solitaire\\common\\Rank.cs",
               "ToolTip": "C:\\Users\\Logan\\Documents\\CODE\\CardGames\\Solitaire\\common\\Rank.cs",
               "RelativeToolTip": "Solitaire\\common\\Rank.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-24T05:55:16.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Solitaire.cs",
+              "DocumentMoniker": "C:\\Users\\Logan\\Documents\\CODE\\CardGames\\Solitaire\\Solitaire.cs",
+              "RelativeDocumentMoniker": "Solitaire\\Solitaire.cs",
+              "ToolTip": "C:\\Users\\Logan\\Documents\\CODE\\CardGames\\Solitaire\\Solitaire.cs",
+              "RelativeToolTip": "Solitaire\\Solitaire.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T06:48:45.902Z",
               "EditorCaption": ""
             },
             {
@@ -62,7 +62,7 @@
               "RelativeDocumentMoniker": "Solitaire\\common\\Card.cs",
               "ToolTip": "C:\\Users\\Logan\\Documents\\CODE\\CardGames\\Solitaire\\common\\Card.cs",
               "RelativeToolTip": "Solitaire\\common\\Card.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAArAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADgAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-24T05:49:50.772Z",
               "EditorCaption": ""
@@ -77,8 +77,7 @@
               "RelativeToolTip": "Solitaire\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T05:49:30.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-24T05:49:30.079Z"
             }
           ]
         }
