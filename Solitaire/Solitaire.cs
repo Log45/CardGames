@@ -23,9 +23,12 @@ public class Solitaire{
         for(int i = 0; i < 7; i++){
             piles[i] = new Stack<Card>();
             for(int j = 0; j < i+1; j++){
-                Card c = deck.DealCard();
+                Card? c = deck.DealCard();
+                if(c == null){
+                    break;
+                }
                 if(j == i){
-                    c.setFaceUp(true);
+                    c.SetFaceUp(true);
                 }
                 piles[i].Push(c);
             }
@@ -34,7 +37,10 @@ public class Solitaire{
             foundations[i] = new Stack<Card>();
         }
         for(int i = 0; i < 24; i++){
-            Card c = deck.DealCard();
+            Card? c = deck.DealCard();
+            if(c == null){
+                break;
+            }
             stock.Push(c);
         }
         moveCodes.Add(-1, "Waste Pile");
@@ -110,26 +116,26 @@ public class Solitaire{
         if(stock.Count == 0){
             while(waste.Count > 0){
                 Card c = waste.Pop();
-                c.setFaceUp(false);
+                c.SetFaceUp(false);
                 stock.Push(c);
             }
         }
         else{
             Card c = stock.Pop();
-            c.setFaceUp(true);
+            c.SetFaceUp(true);
             waste.Push(c);
         }
     }
 
     public static bool IsCompatible(Card a, Card b){
-        if(a.getRank() == b.getRank() + 1){
-            if(a.getSuit() == Suit.Diamonds || a.getSuit() == Suit.Hearts){
-                if(b.getSuit() == Suit.Clubs || b.getSuit() == Suit.Spades){
+        if(a.GetValue() == b.GetValue() + 1 || (a.GetValue() == 14 && b.GetValue() == 2)){
+            if(a.GetSuit() == Suit.Diamonds || a.GetSuit() == Suit.Hearts){
+                if(b.GetSuit() == Suit.Clubs || b.GetSuit() == Suit.Spades){
                     return true;
                 }
             }
-            else if(a.getSuit() == Suit.Clubs || a.getSuit() == Suit.Spades){
-                if(b.getSuit() == Suit.Diamonds || b.getSuit() == Suit.Hearts){
+            else if(a.GetSuit() == Suit.Clubs || a.GetSuit() == Suit.Spades){
+                if(b.GetSuit() == Suit.Diamonds || b.GetSuit() == Suit.Hearts){
                     return true;
                 }
             }
@@ -145,7 +151,7 @@ public class Solitaire{
             Card c = waste.Pop();
             if(to < 7){
                 if(piles[to].Count == 0){
-                    if(c.getRank() == Rank.King){
+                    if(c.GetRank() == Rank.King){
                         piles[to].Push(c);
                     }
                 }
@@ -157,7 +163,7 @@ public class Solitaire{
             }
             else{
                 if(foundations[to-7].Count == 0){
-                    if(c.getRank() == Rank.Ace){
+                    if(c.GetRank() == Rank.Ace){
                         foundations[to-7].Push(c);
                     }
                 }
@@ -176,7 +182,7 @@ public class Solitaire{
                 Card c = piles[from].Pop();
                 if(to < 7){
                     if(piles[to].Count == 0){
-                        if(c.getRank() == Rank.King){
+                        if(c.GetRank() == Rank.King){
                             piles[to].Push(c);
                         }
                         else{
@@ -194,7 +200,7 @@ public class Solitaire{
                 }
                 else{
                     if(foundations[to-7].Count == 0){
-                        if(c.getRank() == Rank.Ace){
+                        if(c.GetRank() == Rank.Ace){
                             foundations[to-7].Push(c);
                         }
                         else{
@@ -218,7 +224,7 @@ public class Solitaire{
                 Card c = foundations[from-7].Pop();
                 if(to < 7){
                     if(piles[to].Count == 0){
-                        if(c.getRank() == Rank.King){
+                        if(c.GetRank() == Rank.King){
                             piles[to].Push(c);
                         }
                         else{
@@ -231,7 +237,7 @@ public class Solitaire{
     }}}
                 else{
                     if(foundations[to-7].Count == 0){
-                        if(c.getRank() == Rank.Ace){
+                        if(c.GetRank() == Rank.Ace){
                             foundations[to-7].Push(c);
                         }
                         else{
@@ -251,7 +257,50 @@ public class Solitaire{
         }
     }
 
+    public static string Help(){
+        StringBuilder sb = new StringBuilder();
+        sb.Append("Commands: move, iterate, help, quit\n");
+        sb.Append("move <from> <to> - Move a card from one pile to another\n");
+        sb.Append("iterate - Iterate the stock pile, either move to the waste pile, or rest the stock pile\n");
+        sb.Append("help - Display this help message\n");
+        sb.Append("quit - Quit the game\n");
+        sb.Append("Move codes:\n");
+        sb.Append("Waste Pile: -1\t Pile 1: 0\t Pile 2: 1\t Pile 3: 2\t Pile 4: 3\t Pile 5: 4\t Pile 6: 5\t Pile 7: 6\n");
+        sb.Append("Foundation 1: 7\t Foundation 2: 8\t Foundation 3: 9\t Foundation 4: 10\n");
+        return sb.ToString();
+    }
+
     public void Play(){
-        Card c;
+        Console.Clear();
+        Console.WriteLine(Help());
+        while(true){
+            Console.WriteLine(ToString());
+            Console.WriteLine("Enter command: ");
+            string? command = Console.ReadLine();
+            if(command == null){
+                break;
+            }
+            string[] commands = command.Split(" ");
+            int from;
+            int to;
+            if(commands[0] == "quit" || commands[0].ToLower() == "q"){
+                break;
+            }
+            else if(commands[0] == "move"){
+                from = Int32.Parse(commands[1]);
+                to = Int32.Parse(commands[2]);
+                Move(from, to);
+            }
+            else if(commands[0] == "iterate"){
+                IterateStock();
+            }
+            else if(commands[0] == "help" || commands[0] == "h"){
+                Console.WriteLine(Help());
+            }
+            else{
+                Console.WriteLine("Invalid command");
+            }
+        }
+        
     }
 }

@@ -6,8 +6,8 @@ public class Card{
     public Dictionary<Suit, string> suitToString = new Dictionary<Suit, string>();
     public Dictionary<Rank, string> rankToString = new Dictionary<Rank, string>();
     private int value;
-    private Suit suit;
-    private Rank rank;
+    private readonly Suit suit;
+    private readonly Rank rank;
     private bool isAvailable;
     private bool isFaceUp;
     public Card(int c, Suit s, Rank r){
@@ -30,28 +30,28 @@ public class Card{
     }
     
     
-    public int getValue(){
+    public int GetValue(){
         return value;
     }
-    public Suit getSuit(){
+    public Suit GetSuit(){
         return suit;
     }
-    public Rank getRank(){
+    public Rank GetRank(){
         return rank;
     }
-    public bool getStatus(){
+    public bool GetStatus(){
         return isAvailable;
     }
-    public bool getFaceUp(){
+    public bool GetFaceUp(){
         return isFaceUp;
     }
-    public void setAvailable(bool available){
+    public void SetAvailable(bool available){
         isAvailable = available;
     }
-    public void setValue(int v){
+    public void SetValue(int v){
         value = v;
     }
-    public void setFaceUp(bool faceUp){
+    public void SetFaceUp(bool faceUp){
         isFaceUp = faceUp;
     }
     public override string ToString(){

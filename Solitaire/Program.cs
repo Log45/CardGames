@@ -2,5 +2,4 @@
 using CardGames.Solitaire;
 
 Solitaire s = new Solitaire();
-// s.play();
-Console.WriteLine(s.ToString());
+s.Play();
