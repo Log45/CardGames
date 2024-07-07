@@ -146,6 +146,7 @@ public class Solitaire{
     public void Move(int from, int to){
         if(from == -1){
             if(waste.Count == 0){
+                Console.WriteLine("Waste pile is empty");
                 return;
             }
             Card c = waste.Pop();
@@ -154,10 +155,20 @@ public class Solitaire{
                     if(c.GetRank() == Rank.King){
                         piles[to].Push(c);
                     }
+                    else{
+                        Console.WriteLine("Invalid move");
+                        waste.Push(c);
+                        return;
+                    }
                 }
                 else{
                     if(IsCompatible(c, piles[to].First())){
                         piles[to].Push(c);
+                    }
+                    else{
+                        Console.WriteLine("Invalid move");
+                        waste.Push(c);
+                        return;
                     }
                 }
             }
@@ -166,10 +177,20 @@ public class Solitaire{
                     if(c.GetRank() == Rank.Ace){
                         foundations[to-7].Push(c);
                     }
+                    else{
+                        Console.WriteLine("Invalid move");
+                        waste.Push(c);
+                        return;
+                    }
                 }
                 else{
                     if(IsCompatible(c, foundations[to-7].First())){
                         foundations[to-7].Push(c);
+                    }
+                    else{
+                        Console.WriteLine("Invalid move");
+                        waste.Push(c);
+                        return;
                     }
                 }
             }
@@ -177,6 +198,7 @@ public class Solitaire{
         else{
             if(from < 7){
                 if(piles[from].Count == 0){
+                    Console.WriteLine("Pile is empty");
                     return;
                 }
                 Card c = piles[from].Pop();
@@ -186,7 +208,9 @@ public class Solitaire{
                             piles[to].Push(c);
                         }
                         else{
+                            Console.WriteLine("Invalid move");
                             piles[from].Push(c);
+                            return;
                         }
                     }
                     else{
@@ -194,7 +218,9 @@ public class Solitaire{
                             piles[to].Push(c);
                         }
                         else{
+                            Console.WriteLine("Invalid move");
                             piles[from].Push(c);
+                            return;
                         }
                     }
                 }
@@ -204,7 +230,9 @@ public class Solitaire{
                             foundations[to-7].Push(c);
                         }
                         else{
+                            Console.WriteLine("Invalid move");
                             piles[from].Push(c);
+                            return;
                         }
                     }
                     else{
@@ -212,13 +240,16 @@ public class Solitaire{
                             foundations[to-7].Push(c);
                         }
                         else{
+                            Console.WriteLine("Invalid move");
                             piles[from].Push(c);
+                            return;
                         }
                     }
                 }
             }
             else{
                 if(foundations[from-7].Count == 0){
+                    Console.WriteLine("Foundation is empty");
                     return;
                 }
                 Card c = foundations[from-7].Pop();
@@ -228,20 +259,31 @@ public class Solitaire{
                             piles[to].Push(c);
                         }
                         else{
+                            Console.WriteLine("Invalid move");
                             foundations[from-7].Push(c);
+                            return;
                         }
                     }
                     else{
                         if(IsCompatible(c, piles[to].First())){
                             piles[to].Push(c);
-    }}}
+                        }
+                        else{
+                            Console.WriteLine("Invalid move");
+                            foundations[from-7].Push(c);
+                            return;
+                        }
+                    }
+                }
                 else{
                     if(foundations[to-7].Count == 0){
                         if(c.GetRank() == Rank.Ace){
                             foundations[to-7].Push(c);
                         }
                         else{
+                            Console.WriteLine("Invalid move");
                             foundations[from-7].Push(c);
+                            return;
                         }
                     }
                     else{
@@ -249,7 +291,9 @@ public class Solitaire{
                             foundations[to-7].Push(c);
                         }
                         else{
+                            Console.WriteLine("Invalid move");
                             foundations[from-7].Push(c);
+                            return;
                         }
                     }
                 }
