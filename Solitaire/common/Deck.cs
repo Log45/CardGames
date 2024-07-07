@@ -1,6 +1,6 @@
 namespace CardGames.common;
 public class Deck{
-    private Card[] cards;
+    private Card?[] cards;
     public Deck(){
         cards = new Card[52];
         int count = 0;
@@ -22,8 +22,11 @@ public class Deck{
         if(cards.Length == 0){
             return null;
         }
-        Card c = cards[0];
-        c.setAvailable(false);
+        Card? c = cards[0];
+        if(c == null){
+            return null;
+        }
+        c.SetAvailable(false);
         for(int i = 0; i < cards.Length - 1; i++){
             cards[i] = cards[i+1];
         }
